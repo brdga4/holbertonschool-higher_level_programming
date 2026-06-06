@@ -7,7 +7,7 @@ if number < 0:
 last = number % 10
 print(f"{last} and is", end = " ")
 if last > 5:
-    print("is greater than 5")
+    print("greater than 5")
 elif last == 0:
     print("0")
 elif (last < 6) and not(last == 0):
