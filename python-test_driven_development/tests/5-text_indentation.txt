@@ -21,6 +21,7 @@ Test 2: Extra spaces after punctuation should be skipped completely
 Sentence one.
 <BLANKLINE>
 Sentence two?
+<BLANKLINE>
 
 Test 3: Spaces at the absolute start or end should be stripped
 >>> text_indentation("   Leading and trailing spaces.   ")
