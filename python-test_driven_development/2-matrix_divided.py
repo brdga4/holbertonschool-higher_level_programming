@@ -44,4 +44,7 @@ def matrix_divided(matrix, div):
             if element != element or element in (float('inf'), float('-inf')):
                 raise TypeError(error_msg)
 
-    return [[round(element / div, 2) for element in row] for row in matrix]
+    return [
+        [round(element / div, 2) + 0.0 for element in row]
+        for row in matrix
+    ]
