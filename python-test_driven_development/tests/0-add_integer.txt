@@ -50,3 +50,21 @@ Traceback (most recent call last):
     ...
 TypeError: a must be an integer
 
+Test 10: Overflow infinity for a
+>>> add_integer(float('inf'), 4)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+Test 11: Overflow negative infinity for b
+>>> add_integer(1, float('-inf'))
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+
+Test 12: NaN (Not a Number) for a
+>>> add_integer(float('nan'), 5)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
