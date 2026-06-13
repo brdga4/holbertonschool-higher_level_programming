@@ -4,6 +4,7 @@ This module provides a function that divides all elements of a matrix.
 It validates matrix structures, dimensions, data types, and division constraints.
 """
 
+
 def matrix_divided(matrix, div):
     """
     Divides all elements of a matrix by a given divisor number.
@@ -22,7 +23,7 @@ def matrix_divided(matrix, div):
 
     if not isinstance(div, (int, float)):
         raise TypeError("div must be a number")
-    if div != div or div in (float('inf'), float('-inf')):
+    if div != div:
         raise TypeError("div must be a number")
     if div == 0:
         raise ZeroDivisionError("division by zero")
