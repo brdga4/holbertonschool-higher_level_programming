@@ -1,0 +1,42 @@
+The ``3-say_my_name`` module test suite
+=========================================
+
+This test file verifies the name printing behavior and string validations.
+First, we import the function from our module:
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Test 1: Normal first and last name
+>>> say_my_name("John", "Smith")
+My name is John Smith
+
+Test 2: Another standard full name
+>>> say_my_name("Walter", "White")
+My name is Walter White
+
+Test 3: Providing only a first name (leaves a trailing space)
+>>> say_my_name("Bob")
+My name is Bob 
+
+Test 4: Passing empty strings for both arguments
+>>> say_my_name("", "")
+My name is  
+
+Test 5: Raising TypeError when first_name is an integer
+>>> say_my_name(12, "White")
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
+
+Test 6: Raising TypeError when last_name is a dictionary
+>>> say_my_name("Walter", {"name": "White"})
+Traceback (most recent call last):
+    ...
+TypeError: last_name must be a string
+
+Test 7: Raising TypeError when first_name is None
+>>> say_my_name(None, "Smith")
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
+
