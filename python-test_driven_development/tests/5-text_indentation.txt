@@ -1,0 +1,41 @@
+The ``5-text_indentation`` module test suite
+============================================
+
+This test file verifies text splitting and trailing/leading space removals.
+First, we import the function from our module:
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Test 1: Standard sentence checks
+>>> text_indentation("Hello. World? Testing: Code")
+Hello.
+<BLANKLINE>
+World?
+<BLANKLINE>
+Testing:
+<BLANKLINE>
+Code
+
+Test 2: Extra spaces after punctuation should be skipped completely
+>>> text_indentation("Sentence one.      Sentence two?")
+Sentence one.
+<BLANKLINE>
+Sentence two?
+
+Test 3: Spaces at the absolute start or end should be stripped
+>>> text_indentation("   Leading and trailing spaces.   ")
+Leading and trailing spaces.
+<BLANKLINE>
+
+Test 4: Raising TypeError when text is not a string
+>>> text_indentation(12345)
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
+
+Test 5: Raising TypeError when argument is missing entirely
+>>> text_indentation()
+Traceback (most recent call last):
+    ...
+TypeError: text_indentation() missing 1 required positional argument: 'text'
+
