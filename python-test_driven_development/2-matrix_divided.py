@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
 This module provides a function that divides all elements of a matrix.
-It validates matrix structures, dimensions, data types, and division constraints.
+It validates matrix structures, dimensions, data types,
+and division constraints.
 """
 
 
@@ -14,7 +15,8 @@ def matrix_divided(matrix, div):
         div (int/float): The number to divide the matrix elements by.
 
     Returns:
-        list: A new matrix representing the division results rounded to 2 decimals.
+        list: A new matrix representing the division
+        results rounded to 2 decimals.
     """
     error_msg = "matrix must be a matrix (list of lists) of integers/floats"
 
