@@ -1,0 +1,52 @@
+The ``0-add_integer`` module test suite
+============================================
+
+This test file verifies the functionality of the add_integer function.
+First, we import the function from our module:
+
+>>> add_integer = __import__('0-add_integer').add_integer
+
+Test 1: Normal integers addition
+>>> add_integer(1, 2)
+3
+
+Test 2: Negative integers addition
+>>> add_integer(100, -2)
+98
+
+Test 3: Checking the default second argument parameter (b=98)
+>>> add_integer(2)
+100
+
+Test 4: Passing floats which must be casted to integers
+>>> add_integer(100.3, -2)
+98
+
+Test 5: Passing floats that round down
+>>> add_integer(2.9, 2)
+4
+
+Test 6: Raising TypeError when b is a string
+>>> add_integer(4, "School")
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+
+Test 7: Raising TypeError when a is None
+>>> add_integer(None)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+Test 8: Raising TypeError when b is None
+>>> add_integer(5, None)
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+
+Test 9: Raising TypeError when a is a list
+>>> add_integer([1, 2], 5)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
