@@ -4,7 +4,7 @@ A class that creates a rectangle
 """
 
 
-class rectangle:
+class Rectangle:
     """
     A class that creates a rectangle
     """
