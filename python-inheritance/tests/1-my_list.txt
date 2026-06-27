@@ -1,0 +1,94 @@
+====================================
+Comprehensive MyList Doctest Suite
+====================================
+
+This documentation provides interactive verification scenarios to confirm 
+the correct instantiation, inheritance, and sorting behaviors of the class.
+
+Requirement 1 & 2: Check Instantiation and Module Loading
+----------------------------------------------------------
+We load the required class reference dynamically using the language's 
+dunder utility to circumvent numeric naming constraints.
+
+    >>> MyList = __import__('1-my_list').MyList
+    >>> my_list = MyList()
+
+Requirement 3: Check Inheritance from list
+------------------------------------------
+The custom structure must explicitly inherit all native properties 
+of a standard sequence container.
+
+    >>> isinstance(my_list, list)
+    True
+
+Requirement 4: Check __str__ rendering
+--------------------------------------
+Printing an empty container should render the default empty sequence 
+string visualization.
+
+    >>> print(my_list)
+    []
+
+Requirement 5: Check append() mechanics
+---------------------------------------
+We must be able to add elements sequentially utilizing standard 
+mutable sequence operations.
+
+    >>> my_list.append(1)
+    >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> print(my_list)
+    [1, 2, 3]
+
+Requirement 6: Check print_sorted() with already sorted append
+--------------------------------------------------------------
+Invoking the custom sorting output on elements that are already ordered 
+incrementally should print them seamlessly.
+
+    >>> my_list.print_sorted()
+    [1, 2, 3]
+
+Requirement 7: Check print_sorted() with an unsorted append
+-----------------------------------------------------------
+Adding items out of order should still result in an ascending, 
+ordered visualization when using the custom display mechanism.
+
+    >>> unordered_list = MyList()
+    >>> unordered_list.append(4)
+    >>> unordered_list.append(1)
+    >>> unordered_list.append(3)
+    >>> unordered_list.print_sorted()
+    [1, 3, 4]
+
+Requirement 8: Check print_sorted() with negative numbers included
+------------------------------------------------------------------
+The implementation must handle signed values perfectly, positioning 
+negative integers before zero or positive integers.
+
+    >>> negative_list = MyList()
+    >>> negative_list.append(5)
+    >>> negative_list.append(-10)
+    >>> negative_list.append(0)
+    >>> negative_list.print_sorted()
+    [-10, 0, 5]
+
+Requirement 9: Check print_sorted() with an empty list
+------------------------------------------------------
+Executing the display logic on a completely empty instance should safely 
+output empty brackets without throwing an exception.
+
+    >>> clear_list = MyList()
+    >>> clear_list.print_sorted()
+    []
+
+Requirement 10: Check print_sorted() returns a new list/does not mutate
+-----------------------------------------------------------------------
+Crucially, calling the display routine must leave the state of the 
+underlying object intact. It should output a freshly sorted copy, 
+preserving the original order inside the instance itself.
+
+    >>> testing_mutation = MyList([9, 2, 7])
+    >>> testing_mutation.print_sorted()
+    [2, 7, 9]
+    >>> print(testing_mutation)
+    [9, 2, 7]
