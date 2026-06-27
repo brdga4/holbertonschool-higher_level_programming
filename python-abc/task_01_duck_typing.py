@@ -14,9 +14,7 @@ class Shape(ABC):
 
 class Circle(Shape):
     def __init__(self, radius):
-        if radius < 0:
-            raise ValueError
-        self.radius = radius
+        self.radius = abs(radius)
 
     def area(self):
         return pi * (self.radius**2)
@@ -27,10 +25,8 @@ class Circle(Shape):
 
 class Rectangle(Shape):
     def __init__(self, width, height):
-        if width < 0 or height < 0:
-            raise ValueError
-        self.width = width
-        self.height = height
+        self.width = abs(width)
+        self.height = abs(height)
 
     def area(self):
         return self.width * self.height
