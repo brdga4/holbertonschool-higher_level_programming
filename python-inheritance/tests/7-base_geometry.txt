@@ -1,11 +1,17 @@
 ====================================
-Simple Integer Validator Test
+Simple BaseGeometry Test
 ====================================
 
 Load the class and make an instance:
 
     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
     >>> bg = BaseGeometry()
+
+Check area method exists and raises an exception:
+
+    >>> bg.area()
+    Traceback (most recent call last):
+    Exception: area() is not implemented
 
 Check if integer_validator function exists:
 
