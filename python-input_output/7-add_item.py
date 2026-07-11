@@ -18,5 +18,5 @@ if os.path.exists(file):
 else:
     my_list = []
 
-my_list.append(args)
+my_list.extend(args)
 save_to_json_file(my_list, file)
