@@ -9,12 +9,14 @@ class SimpleAPIHandler(http.server.BaseHTTPRequestHandler):
     """
 
     def do_GET(self):
+        # 1. Root Endpoint: /
         if self.path == "/":
             self.send_response(200)
             self.send_header("Content-type", "text/plain")
             self.end_headers()
             self.wfile.write(b"Hello, this is a simple API!")
 
+        # 2. Data Endpoint: /data (Returns JSON)
         elif self.path == "/data":
             self.send_response(200)
             self.send_header("Content-type", "application/json")
@@ -22,12 +24,14 @@ class SimpleAPIHandler(http.server.BaseHTTPRequestHandler):
             sample_data = {"name": "John", "age": 30, "city": "New York"}
             self.wfile.write(json.dumps(sample_data).encode("utf-8"))
 
+        # 3. Status Endpoint: /status (Returns Text)
         elif self.path == "/status":
             self.send_response(200)
             self.send_header("Content-type", "text/plain")
             self.end_headers()
             self.wfile.write(b"OK")
 
+        # 4. Info Endpoint: /info (Returns JSON)
         elif self.path == "/info":
             self.send_response(200)
             self.send_header("Content-type", "application/json")
@@ -38,12 +42,12 @@ class SimpleAPIHandler(http.server.BaseHTTPRequestHandler):
             }
             self.wfile.write(json.dumps(info_data).encode("utf-8"))
 
+        # 5. Error Handling: 404 Not Found
         else:
             self.send_response(404)
-            self.send_header("Content-type", "application/json")
+            self.send_header("Content-type", "text/plain")
             self.end_headers()
-            error_message = {"error": "Endpoint not found"}
-            self.wfile.write(json.dumps(error_message).encode("utf-8"))
+            self.wfile.write(b"Endpoint not found")
 
 
 def run(server_class=http.server.HTTPServer, handler_class=SimpleAPIHandler, port=8000):
