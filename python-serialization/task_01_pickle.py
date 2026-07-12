@@ -17,11 +17,17 @@ class CustomObject:
         print(f"Is Student: {self.is_student}")
 
     def serialize(self, filename):
+        """
+        Serializes the current instance of CustomObject to a file using pickle.
+        """
         with open(filename, "wb", encoding="utf-8") as file:
             pickle.dump(self, file)
 
     @classmethod
     def deserialize(cls, filename):
+        """
+        static method to deserialize a CustomObject instance from a file.
+        """
         try:
             with open(filename, "rb", encoding="utf-8") as file:
                 return pickle.load(file)
