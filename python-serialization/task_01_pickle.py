@@ -20,7 +20,7 @@ class CustomObject:
         """
         Serializes the current instance of CustomObject to a file using pickle.
         """
-        with open(filename, "wb", encoding="utf-8") as file:
+        with open(filename, "wb") as file:
             pickle.dump(self, file)
 
     @classmethod
