@@ -29,7 +29,7 @@ class CustomObject:
         static method to deserialize a CustomObject instance from a file.
         """
         try:
-            with open(filename, "rb", encoding="utf-8") as file:
+            with open(filename, "rb") as file:
                 return pickle.load(file)
         except (FileNotFoundError, pickle.UnpicklingError):
             return None
