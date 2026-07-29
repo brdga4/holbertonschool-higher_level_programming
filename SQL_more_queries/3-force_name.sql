@@ -1,6 +1,6 @@
 -- Comment
 CREATE TABLE IF NOT EXISTS force_name (
-  id INT
+  id INT,
   name VAERCHAR(256) NOT NULL
-)
+);
 
